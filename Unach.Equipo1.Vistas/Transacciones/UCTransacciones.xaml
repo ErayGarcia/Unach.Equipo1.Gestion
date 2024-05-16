@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="Unach.Equipo1.Vistas.Transacciones.UCTransacciones"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Unach.Equipo1.Vistas.Transacciones"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Canvas x:Name="Fino" Background="Beige">
+        <!-- Título -->
+        <TextBlock Canvas.Left="25" Canvas.Top="0" Text="Registrar Una Nueva Transacción" Foreground="Blue" FontSize="25"/>
+
+        <!-- Formulario -->
+        <Grid Canvas.Left="15" Canvas.Top="45" Background="Red" Width="Auto" Height="Auto"/>
+
+        <!-- Campos de entrada -->
+        <StackPanel Canvas.Left="25" Canvas.Top="58" Margin="0" Height="242" Width="775">
+            <!-- Fecha, Tipo, Monto, Descripción -->
+            <StackPanel Orientation="Horizontal">
+                <StackPanel>
+                    <TextBlock Text="Fecha:" FontSize="16" VerticalAlignment="Center" Foreground="Black"/>
+                    <DatePicker x:Name="datePickerFecha" Margin="10,0,0,0" Width="172"/>
+                </StackPanel>
+                <StackPanel Margin="20,0,0,0">
+                    <TextBlock Text="Tipo:" FontSize="16" VerticalAlignment="Center" Foreground="Black"/>
+                    <TextBox x:Name="txtTipo" Margin="10,0,0,0" Width="174" Height="30"/>
+                </StackPanel>
+                <StackPanel Margin="20,0,0,0">
+                    <TextBlock Text="Monto:" FontSize="16" VerticalAlignment="Center" Foreground="Black"/>
+                    <TextBox x:Name="txtMonto" Margin="10,0,0,0" Width="196" Height="31"/>
+                </StackPanel>
+
+            </StackPanel>
+
+            <!-- Separadores -->
+            <Border BorderBrush="Gray" BorderThickness="0,10,0,10" Margin="0,10" Height="2"/>
+
+            <!-- ComboBoxes para Categoria y Producto -->
+
+            <!-- Botones -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <!-- Aquí puedes añadir tus botones si es necesario -->
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Margin="20,0,0,0">
+                    <TextBlock Text="Descripción:" FontSize="16" VerticalAlignment="Center" Foreground="Black"/>
+                    <TextBox x:Name="txtDescripcion" Margin="10,0,0,0" Width="196" Height="31" TextChanged="txtDescripcion_TextChanged"/>
+                </StackPanel>
+                <StackPanel Margin="20,0,0,0" Height="63">
+                    <TextBlock Text="Categoría:" FontSize="16" VerticalAlignment="Center" Foreground="Black"/>
+                    <ComboBox x:Name="comboBoxCategoria" Margin="10,0,0,0" Width="185" Height="34" SelectionChanged="comboBoxCategoria_SelectionChanged">
+
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Margin="20,0,0,0">
+                    <TextBlock Text="Producto:" FontSize="16" VerticalAlignment="Center" Foreground="Black"/>
+                    <ComboBox x:Name="comboBoxProducto" Margin="10,0,0,0" Width="185" Height="32" SelectionChanged="comboBoxProducto_SelectionChanged">
+                        <!-- Agrega aquí tus elementos de ComboBox para producto -->
+
+                    </ComboBox>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        <Button x:Name="btnAceptar" Width="100" Canvas.Left="51" Canvas.Top="300" Background="#4CAF50" Cursor="Hand" Click="btnAceptar_Click" Height="40">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="guardar.png" Width="20" Height="20" Margin="0,0,5,0"/>
+                <TextBlock Text="Aceptar"/>
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="btnCancelar" Width="100" Canvas.Left="370" Background="#F44336" Canvas.Top="300" Click="btnCancelar_Click" Cursor="Hand" Height="40">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="limpiar.png" Width="20" Height="20" Margin="0,0,5,0"/>
+                <TextBlock Text="Descartar"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="btnModificar" Width="100" Canvas.Left="209" Background="#FFC107" Canvas.Top="300" Click="btnModificar_Click" Cursor="Hand" Height="40">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="editar.png" Width="20" Height="20" Margin="0,0,5,0"/>
+                <TextBlock Text="Modificar"/>
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="btnVisualizar" Width="100" Background="#2196F3" Canvas.Left="540" Canvas.Top="300" Cursor="Hand" Click="btnVisualizar_Click" Height="40">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="vizualizar.png" Width="20" Height="20" Margin="0,0,5,0"/>
+                <TextBlock Text="Visualizar"/>
+            </StackPanel>
+        </Button>
+        <Grid x:Name="ver" Background="#99000000" Visibility="Collapsed">
+            <Frame x:Name="frame" Width="{Binding ActualWidth, ElementName=ver}" Height="{Binding ActualHeight, ElementName=ver}"/>
+        </Grid>
+    </Canvas>
+
+</UserControl>
